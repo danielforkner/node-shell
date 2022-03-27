@@ -1,6 +1,7 @@
-const pwd = require('./pwd.js');
-const ls = require('./ls.js');
-const cat = require('./cat.js');
+import pwd from './pwd.js';
+import ls from './ls.js';
+import cat from './cat.js';
+import curl from './curl.js';
 
 process.stdout.write('prompt $ ');
 
@@ -21,6 +22,14 @@ process.stdin.on('data', (data) => {
         break;
       }
       cat(arg);
+      break;
+    case 'curl':
+      if (!arg) {
+        process.stdout.write('You must specify a valid url');
+        process.stdout.write('\nprompt $ ');
+        break;
+      }
+      curl(arg);
       break;
     default:
       process.stdout.write('You typed: ' + cmd);

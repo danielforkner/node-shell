@@ -1,14 +1,14 @@
-const fs = require('fs');
+import { readdir } from 'fs';
+import done from './done.js';
 
 function ls() {
-  fs.readdir('./', 'utf8', (err, files) => {
+  readdir('./', 'utf8', (err, files) => {
     if (err) {
       throw err;
     } else {
-      process.stdout.write(files.join('\n'));
-      process.stdout.write('\nprompt $ ');
+      done(files.join('\n'));
     }
   });
 }
 
-module.exports = ls;
+export default ls;

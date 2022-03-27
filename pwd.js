@@ -1,6 +1,7 @@
+import done from './done.js';
+
 function pwd() {
-  process.stdout.write(process.cwd());
-  process.stdout.write('\nprompt $ ');
+  done(process.cwd());
 }
 
-module.exports = pwd;
+export default pwd;

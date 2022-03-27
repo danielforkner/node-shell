@@ -1,11 +1,11 @@
-const fs = require('fs');
+import { readFile } from 'fs';
+import done from './done.js';
 
 function cat(file) {
-  fs.readFile(file, (err, data) => {
+  readFile(file, (err, data) => {
     if (err) throw err;
-    process.stdout.write(data);
-    process.stdout.write('\nprompt $ ');
+    done(data);
   });
 }
 
-module.exports = cat;
+export default cat;
